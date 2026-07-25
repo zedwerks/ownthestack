@@ -1,0 +1,72 @@
+[
+  {
+    "id": "current-state",
+    "order": 1,
+    "status": "published",
+    "tags": ["current state", "fragmentation", "primary care", "hospitals"],
+    "en": {
+      "title": "The Fragmentation We Call a System",
+      "abstract": "Thirteen jurisdictions, a dozen vendors, and no shared record. A survey of how Canada actually runs its clinical information systems today, and what fragmentation costs in dollars and in care."
+    }
+  },
+  {
+    "id": "sovereignty-risk",
+    "order": 2,
+    "status": "published",
+    "tags": ["sovereignty", "vendor risk", "Oracle", "procurement"],
+    "en": {
+      "title": "Renting Sovereignty: The Foreign Vendor Problem",
+      "abstract": "What happens when the company that holds a province's patient records restructures, gets acquired, or is compelled by a foreign government — and why 'not now' is not the same as 'never'."
+    }
+  },
+  {
+    "id": "open-source-foundations",
+    "order": 3,
+    "status": "planned",
+    "tags": ["OpenMRS", "Bahmni", "openEHR", "architecture"],
+    "en": {
+      "title": "What We Don't Have to Build Twice",
+      "abstract": "An assessment of OpenMRS, Bahmni, and openEHR as candidate foundations, and why Canada should extend rather than replace the interoperability work Infoway has already funded."
+    }
+  },
+  {
+    "id": "architecture",
+    "order": 4,
+    "status": "planned",
+    "tags": ["modularity", "FHIR", "CA Core+", "provinces"],
+    "en": {
+      "title": "One Spine, Many Modules",
+      "abstract": "A technical architecture where each jurisdiction owns a module, every module speaks CA Core+ FHIR, and no province is blocked on another's delivery schedule."
+    }
+  },
+  {
+    "id": "governance",
+    "order": 5,
+    "status": "planned",
+    "tags": ["consortium", "governance", "federal-provincial"],
+    "en": {
+      "title": "Who Holds the Pen",
+      "abstract": "A governance model for a federal-provincial-territorial consortium that can make binding technical decisions without recreating the health-transfer disputes of the last thirty years."
+    }
+  },
+  {
+    "id": "funding",
+    "order": 6,
+    "status": "planned",
+    "tags": ["funding", "mandated contribution", "procurement policy"],
+    "en": {
+      "title": "The Mandated Contribution Model",
+      "abstract": "How a shared-cost formula, tied to existing federal health transfers, could fund development once instead of thirteen times — and what happens to the money provinces already pay Oracle and Epic."
+    }
+  },
+  {
+    "id": "roadmap",
+    "order": 7,
+    "status": "planned",
+    "tags": ["timeline", "delivery", "pilots"],
+    "en": {
+      "title": "Ten Years, Thirteen Jurisdictions",
+      "abstract": "A realistic delivery sequence: which province goes first, which module ships first, and how the system stays useful at every step rather than only at the end."
+    }
+  }
+]

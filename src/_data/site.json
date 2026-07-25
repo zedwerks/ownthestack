@@ -1,0 +1,25 @@
+{
+  "title": "Own the Stack",
+  "domain": "ownthestack.ca",
+  "subtitle": "A proposal for a Canadian-owned clinical information system",
+  "nav": {
+    "home": "Home",
+    "about": "About this proposal"
+  },
+  "hero": {
+    "eyebrow": "Working prospectus — draft for discussion",
+    "headline": "Canada rents its patient records from three American companies. This is the case for owning the stack.",
+    "sub": "A modular, open-source clinical information system for every province and territory — built once, owned collectively, and never subject to a foreign vendor's balance sheet.",
+    "cta_primary": "Own the stack — read the case",
+    "cta_secondary": "See the governance model"
+  },
+  "footer": {
+    "note": "This is an independent working proposal, not an official position of any government or health authority. Published open source under MIT license so it can be forked, argued with, and improved.",
+    "status": "Status: early draft — circulating for feedback"
+  },
+  "status_labels": {
+    "published": "Published",
+    "draft": "In draft",
+    "planned": "Planned"
+  }
+}
