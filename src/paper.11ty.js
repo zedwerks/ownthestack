@@ -9,16 +9,14 @@ class PaperPage {
         alias: "paperMeta",
       },
       permalink: (data) => `/paper/${data.paperMeta.id}/index.html`,
-      eleventyComputed: {
-        title: (data) => `${data.paperMeta.en.title} — ${data.site.title}`,
-        description: (data) => data.paperMeta.en.abstract,
-      },
     };
   }
 
   render(data) {
     const { site, paperMeta, paperBodies, publishedPapers } = data;
     const body = paperBodies[`${paperMeta.id}.en`];
+    const title = `${paperMeta.en.title} — ${site.title}`;
+    const description = paperMeta.en.abstract;
 
     const bodyHtml = `
       <section class="paper-page">
@@ -41,8 +39,8 @@ class PaperPage {
 
     return layout({
       site,
-      title: data.title,
-      description: data.description,
+      title,
+      description,
       activeNav: "papers",
       canonical: `https://${site.domain}/paper/${paperMeta.id}/`,
       bodyHtml,

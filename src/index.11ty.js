@@ -4,15 +4,13 @@ class HomePage {
   data() {
     return {
       permalink: "/index.html",
-      eleventyComputed: {
-        title: (data) => `${data.site.title} — ${data.site.subtitle}`,
-        description: (data) => data.site.hero.sub,
-      },
     };
   }
 
   render(data) {
     const { site, papers, publishedPapers } = data;
+    const title = `${site.title} — ${site.subtitle}`;
+    const description = site.hero.sub;
 
     // Point "see the governance model" at the real paper once it's published;
     // until then, fall back to the on-page index instead of a dead link.
@@ -46,8 +44,8 @@ class HomePage {
 
     return layout({
       site,
-      title: data.title,
-      description: data.description,
+      title,
+      description,
       activeNav: "home",
       canonical: `https://${site.domain}/`,
       bodyHtml,

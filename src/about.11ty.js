@@ -4,15 +4,13 @@ class AboutPage {
   data() {
     return {
       permalink: "/about/index.html",
-      eleventyComputed: {
-        title: (data) => `About this proposal — ${data.site.title}`,
-        description: (data) => data.site.footer.note,
-      },
     };
   }
 
   render(data) {
     const { site } = data;
+    const title = `About this proposal — ${site.title}`;
+    const description = site.footer.note;
     const bodyHtml = `
       <section class="paper-page">
         <div class="wrap">
@@ -36,8 +34,8 @@ class AboutPage {
 
     return layout({
       site,
-      title: data.title,
-      description: data.description,
+      title,
+      description,
       activeNav: "about",
       canonical: `https://${site.domain}/about/`,
       bodyHtml,
