@@ -25,23 +25,10 @@ function paperRow(paper, { linkable, numWidth } = { linkable: true }) {
   return `<div class="paper-row paper-row-disabled">${inner}</div>`;
 }
 
-// Renders one content block (see papers-content/*.json) to an HTML string.
+// Renders the auto-generated footer blocks appended after a paper's markdown
+// body (see paper.11ty.js): the tag row and the "continue reading" list.
 function renderBlock(block, context) {
   switch (block.type) {
-    case "dropcap_paragraph":
-      return `<p class="dropcap">${escapeHtml(block.text)}</p>`;
-    case "paragraph":
-      return `<p class="paragraph">${escapeHtml(block.text)}</p>`;
-    case "section_heading":
-      return `<h2 class="section-heading">${escapeHtml(block.text)}</h2>`;
-    case "pullquote":
-      return `<blockquote class="pullquote">${escapeHtml(block.text)}</blockquote>`;
-    case "keystat":
-      return `<div class="keystat"><span class="keystat-value">${escapeHtml(
-        block.value
-      )}</span><span class="keystat-label">${escapeHtml(block.label)}</span></div>`;
-    case "sidenote":
-      return `<p class="sidenote">${escapeHtml(block.text)}</p>`;
     case "tag_row":
       return `<div class="paper-tags">${block.tags
         .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)

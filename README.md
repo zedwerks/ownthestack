@@ -38,9 +38,8 @@ their build pipeline pre-renders a static page per paper for crawlers. This
 project didn't have that step, which meant no real per-paper URLs, no link
 previews when a paper gets shared, and effectively no SEO — a search engine
 sees one page, not seven. Eleventy fixes that natively: every paper is a
-genuine static file at its own address, generated from the same JSON content
-model. The authoring workflow (write a paper as a `blocks` array in JSON) is
-unchanged from that earlier draft — only how it becomes HTML changed.
+genuine static file at its own address, generated from a plain Markdown
+content model.
 
 ## How it works
 
@@ -55,7 +54,9 @@ src/
   robots.txt
   style.css                   The whole design system (ledger/archival theme)
   _lib/
-    render.js                 Shared HTML helpers: block renderer, page layout
+    render.js                 Shared HTML helpers: tag/related renderer, page layout
+    markdown.js                 The markdown-it setup: dropcap/pullquote/keystat/
+                                  sidenote rendering rules
   _data/
     site.json                 Site-wide config and interface strings
     papers.json                The inventory: one entry per paper (id, order,
@@ -63,34 +64,70 @@ src/
                                  drives the home-page list, published or not
     publishedPapers.js          Global data: papers.json entries filtered to
                                   only those with a body file (see below)
-    paperBodies.js               Global data: every paper body JSON, loaded
-                                   and keyed by "<id>.<locale>"
+    paperBodies.js               Global data: every paper body, read as
+                                   Markdown and keyed by "<id>.<locale>"
     papers-content/
-      current-state.en.json      Paper bodies — one file per paper per locale,
-      sovereignty-risk.en.json    each an ordered `blocks` array
+      current-state.en.md        Paper bodies — one file per paper per locale,
+      sovereignty-risk.en.md      frontmatter + plain Markdown prose
 ```
 
-**Content model** (unchanged from the earlier draft): a paper body is an
-ordered `blocks` array. Block types implemented in `_lib/render.js`:
-`dropcap_paragraph`, `paragraph`, `section_heading`, `pullquote`, `keystat`,
-`sidenote`, `tag_row`, `related`. To write a new paper, add its metadata to
-`papers.json` (`status: "draft"` to start) and create
-`src/_data/papers-content/<id>.en.json` with a `blocks` array — Eleventy
-picks it up automatically on the next build; no route or template file to
-touch. Flip `status` to `"published"` when it's ready for readers.
+## Writing a paper
 
-**A gotcha this project already hit once:** the `related` block at the end
-of a paper links to other paper IDs. If you reference a paper that's still
-`planned` (no body file yet), the link renderer silently drops it rather than
+Papers are authored as plain Markdown — the goal is that anyone can open a
+pull request adding or editing one without reading any code. A body file
+looks like this:
+
+```markdown
+---
+id: current-state
+locale: en
+translation_status: final
+tags: [fragmentation, OSCAR EMR, Infoway]
+related: [sovereignty-risk, open-source-foundations]
+---
+
+Ordinary paragraphs work exactly like normal Markdown. The very first
+paragraph in the file automatically gets the drop-cap treatment — you don't
+need to do anything special for it.
+
+## A section heading
+
+`##` headings get the section-heading styling automatically. Standard
+**bold**, *italic*, and [links](https://example.com) all work as you'd
+expect, and so does raw HTML if you ever need something Markdown can't do.
+
+> A blockquote is always rendered as a pullquote.
+
+::: keystat 10 yrs | the length of Nova Scotia's Oracle Cerner contract
+:::
+
+::: sidenote
+A sidenote — rendered smaller, indented, with a "Note —" label added
+automatically by CSS.
+:::
+```
+
+To add a new paper: add its metadata to `papers.json` (`status: "draft"` to
+start) and create `src/_data/papers-content/<id>.en.md` with frontmatter +
+prose as above — Eleventy picks it up automatically on the next build; no
+route or template file to touch, and the local dev server (`npm start`)
+watches these files and rebuilds live. Flip `status` to `"published"` in
+`papers.json` when it's ready for readers — that's the review gate: a `draft`
+paper builds and is reachable by direct URL, but stays greyed out and
+unlinked on the home page until someone with merge access flips the flag.
+
+**A gotcha this project already hit once:** the `related` frontmatter field
+links to other paper IDs. If you reference a paper that's still `planned`
+(no body file yet), the link renderer silently drops it rather than
 generating a dead link — that's why `paper.11ty.js` passes `publishedPapers`
-into the block-rendering context, not the full inventory. Keep that in mind
-if you ever change what gets passed there.
+into the renderer, not the full inventory. Keep that in mind if you ever
+change what gets passed there.
 
 **The raw content is published too.** `/data/papers.json` and
-`/data/papers/<id>.en.json` are copied straight into the built site, so
-anyone can see the exact source a paper was built from without cloning the
-repo — the same "auditable as flat files" idea the Alberta site's README
-talks about, kept here even without their in-browser CMS or AI-generation
+`/data/papers/<id>.en.md` are copied straight into the built site, so anyone
+can see the exact source a paper was built from without cloning the repo —
+the same "auditable as flat files" idea the Alberta site's README talks
+about, kept here even without their in-browser CMS or AI-generation
 pipeline.
 
 ## Running it locally
@@ -139,8 +176,8 @@ eval) that should block a bad deploy.
 
 ## Not yet built
 
-- **French.** The data model is ready for it (`papers-content/<id>.fr.json`
-  alongside the `.en.json`, a `translation_status` field already used
+- **French.** The data model is ready for it (`papers-content/<id>.fr.md`
+  alongside the `.en.md`, a `translation_status` field already used
   elsewhere in this project's earlier draft) but no French content exists
   yet and the locale-switching UI isn't wired up. Get the English argument
   right first.
