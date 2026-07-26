@@ -6,6 +6,10 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["eleventy", "--serve", "--port=8890"],
       "port": 8890
+    },
+    {
+      "name": "logo-preview",
+      "url": "http://localhost:8934"
     }
   ]
 }
