@@ -75,6 +75,9 @@ function layout({ site, title, description, activeNav, bodyHtml, canonical }) {
   <meta property="og:title" content="${escapeHtml(title)}" />
   <meta property="og:description" content="${escapeHtml(description)}" />
   <meta property="og:type" content="website" />
+  <link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -83,7 +86,7 @@ function layout({ site, title, description, activeNav, bodyHtml, canonical }) {
 <body>
   <header class="site-header">
     <div class="site-header-inner">
-      <a href="/" class="brand"><span class="brand-mark">§</span> ${escapeHtml(site.title)}</a>
+      <a href="/" class="brand"><img src="/assets/logo-mark.svg" alt="" width="32" height="32" class="brand-mark" /> ${escapeHtml(site.title)}</a>
       <nav class="site-nav">
         <a href="/" ${activeNav === "home" ? 'class="active"' : ""}>${site.nav.home}</a>
         <a href="/about/" ${activeNav === "about" ? 'class="active"' : ""}>${site.nav.about}</a>

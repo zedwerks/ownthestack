@@ -58,6 +58,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.15rem;
@@ -67,7 +70,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 }
 
 .brand-mark {
-  color: var(--brass);
+  width: 32px;
+  height: 32px;
 }
 
 .site-nav {
