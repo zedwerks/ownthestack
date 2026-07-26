@@ -6,6 +6,10 @@ const contentDir = path.join(__dirname, "papers-content");
 
 module.exports = () => {
   return papers
-    .filter((p) => fs.existsSync(path.join(contentDir, `${p.id}.en.json`)))
+    .filter(
+      (p) =>
+        fs.existsSync(path.join(contentDir, `${p.id}.en.md`)) ||
+        fs.existsSync(path.join(contentDir, `${p.id}.en.mdx`))
+    )
     .sort((a, b) => a.order - b.order);
 };

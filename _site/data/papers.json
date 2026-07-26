@@ -1,4 +1,5 @@
 [
+
   {
     "id": "current-state",
     "order": 1,
@@ -39,9 +40,19 @@
       "abstract": "A technical architecture where each jurisdiction owns a module, every module speaks CA Core+ FHIR, and no province is blocked on another's delivery schedule."
     }
   },
+    {
+    "id": "health-identity",
+    "order": 5,
+    "status": "published",
+    "tags": ["health-identity", "overview", "context", "iso"],
+    "en": {
+      "title": "Health Identity: A Primer",
+      "abstract": "A brief overview of the problem, the solution, and the structure of this series of papers."
+    }
+  },
   {
     "id": "governance",
-    "order": 5,
+    "order": 6,
     "status": "planned",
     "tags": ["consortium", "governance", "federal-provincial"],
     "en": {
@@ -51,7 +62,7 @@
   },
   {
     "id": "funding",
-    "order": 6,
+    "order": 7,
     "status": "planned",
     "tags": ["funding", "mandated contribution", "procurement policy"],
     "en": {
@@ -61,7 +72,7 @@
   },
   {
     "id": "roadmap",
-    "order": 7,
+    "order": 8,
     "status": "planned",
     "tags": ["timeline", "delivery", "pilots"],
     "en": {
