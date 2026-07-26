@@ -51,8 +51,18 @@
     }
   },
   {
-    "id": "governance",
+    "id": "landscape-analysis",
     "order": 6,
+    "status": "planned",
+    "tags": ["landscape", "analysis", "overview", "context"],
+    "en": {
+      "title": "Landscape Analysis: Existing open source health information systems",
+      "abstract": "A survey of existing open source health information systems, their capabilities, and how they could be leveraged to build a shared clinical information system for Canada."
+    }
+  },  
+  {
+    "id": "governance",
+    "order": 7,
     "status": "planned",
     "tags": ["consortium", "governance", "federal-provincial"],
     "en": {
@@ -62,7 +72,7 @@
   },
   {
     "id": "funding",
-    "order": 7,
+    "order": 8,
     "status": "planned",
     "tags": ["funding", "mandated contribution", "procurement policy"],
     "en": {
@@ -72,7 +82,7 @@
   },
   {
     "id": "roadmap",
-    "order": 8,
+    "order": 9,
     "status": "planned",
     "tags": ["timeline", "delivery", "pilots"],
     "en": {
