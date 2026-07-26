@@ -140,20 +140,22 @@ npm run build     # builds to ./_site once, no server
 
 ## Deploying (Cloudflare Pages)
 
+Cloudflare Pages watches this repo directly and deploys `main` — there's no
+GitHub Actions workflow and no Cloudflare API token sitting in the repo's
+secrets. The review gate is the pull request itself: nothing reaches `main`
+until it's been reviewed and merged, and a merge to `main` is what goes
+live.
+
 **One-time setup:**
 
-1. In the Cloudflare dashboard, create a Pages project named `own-the-stack`
-   (Workers & Pages → Create → Pages → Direct Upload — the GitHub Action
-   pushes the build, Cloudflare doesn't need to watch the repo for this
-   setup).
-2. Create an API token: My Profile → API Tokens → Create Token → a token
-   scoped to `Account.Cloudflare Pages: Edit`. Copy it.
-3. Find your Account ID on any domain's Overview page in the dashboard,
-   right sidebar.
-4. In the GitHub repo: Settings → Secrets and variables → Actions, add
-   `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
-5. Push to `main`. `.github/workflows/deploy.yml` runs `npm ci && npm run
-   build`, then `wrangler pages deploy _site`.
+1. In the Cloudflare dashboard: Workers & Pages → Create → Pages → Connect
+   to Git → pick this repo.
+2. Production branch: `main`. Build command: `npm run build`. Output
+   directory: `_site`.
+3. Save. Cloudflare builds and deploys on every push to `main` from here on
+   (and gives PR preview deployments for other branches automatically,
+   which is a nice side effect for reviewing a contribution before merging
+   it).
 
 **Pointing the domain at it:** once the Pages project has had one successful
 deploy, go to the project → Custom domains → add `ownthestack.ca` (and
@@ -161,18 +163,6 @@ deploy, go to the project → Custom domains → add `ownthestack.ca` (and
 Cloudflare, this is a one-click add. If it's registered elsewhere, either
 move DNS to Cloudflare (free) or CNAME to the `*.pages.dev` URL the project
 gets by default.
-
-**`.github/workflows/ci.yml`** runs the same build (no deploy) on every pull
-request and on pushes to any branch that isn't `main`, so a broken build
-can't reach production and can't silently merge, either.
-
-**Alternative, skipping GitHub Actions entirely:** Cloudflare Pages can
-watch the repo directly (Workers & Pages → Create → Pages → Connect to Git,
-build command `npm run build`, output directory `_site`) and redeploy on
-every push with no workflow file and no secrets. Simpler if you don't need
-deploy logic under version control. The Actions route above is worth keeping
-if you want that, or expect to add steps (linting, a future style-guide
-eval) that should block a bad deploy.
 
 ## Not yet built
 
