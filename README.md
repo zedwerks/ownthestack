@@ -1,6 +1,6 @@
 # Own the Stack
 
-**[ownthestack.ca](https://ownthestack.ca)** *(not yet registered/deployed — see below)*
+[ownthestack.ca](https://ownthestack.ca)
 
 A proposal for a Canadian-owned, open-source clinical information system —
 governed by a federal-provincial-territorial consortium, funded through
@@ -16,7 +16,7 @@ who wants to make the case better.
 
 ## Status
 
-Two papers are written. Five more are scaffolded in `src/_data/papers.json`
+Three papers are written. Five more are scaffolded in `src/_data/papers.json`
 with working titles, abstracts, and `"status": "planned"` — they show up on
 the home page already, greyed out and unlinked, so the shape of the whole
 argument is visible before it's finished.
@@ -25,9 +25,10 @@ argument is visible before it's finished.
 2. **Renting Sovereignty: The Foreign Vendor Problem** — sovereignty risk case — *published*
 3. **What We Don't Have to Build Twice** — OpenMRS / Bahmni / openEHR assessment — planned
 4. **One Spine, Many Modules** — technical architecture, CA Core+ alignment — planned
-5. **Who Holds the Pen** — governance model — planned
-6. **The Mandated Contribution Model** — funding model — planned
-7. **Ten Years, Thirteen Jurisdictions** — delivery roadmap — planned
+5. **Health Identity: A Primer**
+6. **Who Holds the Pen** — governance model — planned
+7. **The Mandated Contribution Model** — funding model — planned
+8. **Ten Years, Thirteen Jurisdictions** — delivery roadmap — planned
 
 ## Why Eleventy, not a client-side app
 
@@ -179,3 +180,11 @@ gets by default.
 ## License
 
 MIT.
+
+## About the Instigator
+
+I've spent my career inside the systems this paper argues against. As Solution Architect for BC's Health Gateway, I helped build the BC Vaccine Card and modernize the PharmaNet API — watching firsthand how much of what should be shared public infrastructure gets bolted together as one-off integrations against vendor platforms we don't control. Later, as Lead Enterprise Architect for Identity and Access Management at BC's Provincial Health Services Authority, I worked on the Digital Health Toolkit and the Longitudinal Record Access Program, and saw the same fragmentation from the identity layer: thirteen jurisdictions, none of them able to simply trust a patient record that crossed a border drawn in 1867.
+
+I run Zed Werks Inc., building SMART on FHIR and healthcare interoperability tooling in the open, as well as Alberta's Mobile Health Card and Mobile ID. Own the Stack is the argument I couldn't stop making in meetings: that Canada has the standards, the open-source foundations, and the technical talent to own this infrastructure outright — what's missing is the will to stop renting it.
+
+[Find me on LinkedIn](https://www.linkedin.com/in/bradhead/)
