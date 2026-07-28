@@ -8,6 +8,8 @@ related: [sovereignty-risk, open-source-foundations]
 
 Ask a Canadian which country runs its health data on a shared national record, and most will assume it's their own. It isn't. What we have instead is thirteen provincial and territorial health systems, each of which has spent the last two decades procuring, replacing, and patching together clinical information systems on its own — usually from the same short list of American vendors, usually without much regard for what the province next door just bought.
 
+Every procurement decision is also a **sovereignty** decision. Canada has quietly outsourced much of the software that underpins healthcare to foreign commercial platforms. Before we can discuss sovereignty, however, we first need to understand how fragmented the current landscape actually is.
+
 ## The provincial patchwork, seen from inside one province
 
 You don't have to compare provinces to see the fragmentation. British Columbia's five regional health authorities can't agree with each other. Island Health went live on Oracle Cerner in 2016, at Nanaimo Regional General Hospital, in a rollout later found by two separate provincial investigations to have been under-planned and under-resourced. Vancouver Coastal Health, the Provincial Health Services Authority, and Providence Health Care followed onto Cerner in phases from 2018 under the Clinical + Systems Transformation project — a program whose original contractor, IBM, was replaced mid-project after a dispute with the Ministry of Health, at a total cost that had reached $842 million. Meanwhile Fraser Health and Interior Health run MEDITECH Expanse, a system built by a company headquartered in Westwood, Massachusetts.
@@ -16,6 +18,12 @@ You don't have to compare provinces to see the fragmentation. British Columbia's
 :::
 
 So a patient who moves from Nanaimo to Surrey doesn't just change health authorities. They change electronic health record vendors, data models, and — in practice — the degree to which their new care team can see anything about their old one. This is not a story about BC being unusually disorganized. It is what every province looks like once you check under the hood: a set of regional or authority-level procurements, each optimized locally, none of them required to be interoperable with the others by anything stronger than goodwill and an evolving voluntary standard.
+
+Imagine a BC resident travelling in Nova Scotia who needs a refill.
+
+The Nova Scotia pharmacist may be legally permitted to dispense the medication. But the pharmacist cannot simply open a national patient record and verify the original prescription, recent dispensing history, relevant diagnoses, laboratory results, allergies and provincial drug-plan eligibility. Instead, the pharmacy may need to telephone or fax the BC pharmacy or prescriber, confirm that the prescription is authentic, determine whether it can legally be transferred, and ask the patient to pay out of pocket because BC PharmaCare generally does not cover medications dispensed outside BC.
+
+The medication may ultimately be supplied. But the patient experiences the system not as one Canadian health service, but as two provincial systems attempting to negotiate with each other manually. ***We can do better***. 
 
 ## Primary care adds a second, older layer
 
@@ -35,4 +43,6 @@ None of this means Canada has done no national work. Canada Health Infoway has s
 
 The costs of this arrangement are not abstract. Every province re-runs its own procurement, negotiation, integration, and change-management cycle for systems that do fundamentally the same job everywhere: registration, clinical documentation, orders, results, medications, and billing. Every province pays its own implementation partners to rebuild interfaces that another province's implementation partners built the year before. And patients pay a quieter cost in the gaps between jurisdictions: earlier analysis of cross-provincial prescription friction alone estimated roughly 107,000 unnecessary GP visits per year arising simply from the absence of a shared, verifiable record across provincial lines — before any of the larger costs of duplicated hospital procurement are counted.
 
-None of this is a technology problem in the sense of missing capability. Open-source clinical systems capable of running a modern hospital exist today. Canadian-built interoperability standards capable of connecting them exist today. What doesn't exist is a body with the mandate, the funding formula, and the cross-jurisdictional authority to point thirteen procurement cycles at the same target. The next paper in this series makes the case that the absence of that body is not merely inefficient — it is a live financial and sovereignty risk, and the clock on it is running faster than most health ministries have priced in.
+None of this is a technology problem in the sense of missing capability. Open-source clinical systems capable of running a modern hospital exist today. Canadian-built interoperability standards capable of connecting them exist today. What doesn't exist is a body with the mandate, the funding formula, and the cross-jurisdictional authority to point thirteen procurement cycles at the same target. 
+
+The next paper in this series makes the case that the absence of that body is not merely inefficient — it is a live financial and sovereignty risk, and the clock on it is running faster than most health ministries have priced in.
