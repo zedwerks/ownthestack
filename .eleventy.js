@@ -11,6 +11,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/logo-mark.svg": "assets/logo-mark.svg" });
   eleventyConfig.addPassthroughCopy({ "src/assets/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/assets/apple-touch-icon.png": "apple-touch-icon.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/favicon-32x32.png": "assets/favicon-32x32.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/favicon-16x16.png": "assets/favicon-16x16.png" });
+
+  // Social-share and iOS/Android home-screen images (see render.js meta tags
+  // and site.webmanifest below) — generated from branding/ownthestack.svg,
+  // not hand-drawn output.
+  eleventyConfig.addPassthroughCopy({ "src/assets/og-image.png": "assets/og-image.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/icon-192.png": "assets/icon-192.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/icon-512.png": "assets/icon-512.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/icon-512-maskable.png": "assets/icon-512-maskable.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/site.webmanifest": "site.webmanifest" });
 
   // Publish the raw paper content as plain Markdown too, so the site's own
   // claims are auditable the same way the rest of this project is:

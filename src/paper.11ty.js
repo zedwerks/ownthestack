@@ -1,4 +1,4 @@
-const { layout, renderBlocks, escapeHtml } = require("./_lib/render.js");
+const { layout, renderBlocks, escapeHtml, BUILD_TIME } = require("./_lib/render.js");
 
 class PaperPage {
   data() {
@@ -47,12 +47,46 @@ class PaperPage {
       </section>
     `;
 
+    const canonical = `https://${site.domain}/paper/${paperMeta.id}/`;
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      headline: paperMeta.en.title,
+      description: paperMeta.en.abstract,
+      url: canonical,
+      image: `https://${site.domain}/assets/og-image.png`,
+      inLanguage: "en-CA",
+      keywords: paperMeta.tags?.join(", "),
+      datePublished: BUILD_TIME,
+      dateModified: BUILD_TIME,
+      author: {
+        "@type": "Person",
+        name: "Brad Head",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Own the Stack",
+        url: `https://${site.domain}/`,
+        logo: {
+          "@type": "ImageObject",
+          url: `https://${site.domain}/apple-touch-icon.png`,
+        },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonical,
+      },
+    };
+
     return layout({
       site,
       title,
       description,
       activeNav: "papers",
-      canonical: `https://${site.domain}/paper/${paperMeta.id}/`,
+      canonical,
+      type: "article",
+      jsonLd,
       bodyHtml,
     });
   }

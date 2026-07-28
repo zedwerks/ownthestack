@@ -42,12 +42,32 @@ class HomePage {
       </section>
     `;
 
+    const canonical = `https://${site.domain}/`;
+
+    const jsonLd = [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: site.title,
+        description: site.hero.sub,
+        url: canonical,
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Own the Stack",
+        url: canonical,
+        logo: `https://${site.domain}/apple-touch-icon.png`,
+      },
+    ];
+
     return layout({
       site,
       title,
       description,
       activeNav: "home",
-      canonical: `https://${site.domain}/`,
+      canonical,
+      jsonLd,
       bodyHtml,
     });
   }
