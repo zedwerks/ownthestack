@@ -5,3 +5,6 @@ dist/
 
 # AI
 .claude/
+
+# local site build
+_site/
