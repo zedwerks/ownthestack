@@ -8,7 +8,12 @@
   <link rel="canonical" href="https://ownthestack.ca/paper/current-state/" />
   <meta property="og:title" content="The Fragmentation We Call a System — Own the Stack" />
   <meta property="og:description" content="Thirteen jurisdictions, a dozen vendors, and no shared record. A survey of how Canada actually runs its clinical information systems today, and what fragmentation costs in dollars and in care." />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ownthestack.ca/paper/current-state/" />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <meta property="article:published_time" content="2026-07-27">
+  <meta property="article:modified_time" content="2026-07-27">
+  <meta property="article:author" content="Zed Werks Inc.">
   <link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -37,9 +42,13 @@
             <p class="sub">Thirteen jurisdictions, a dozen vendors, and no shared record. A survey of how Canada actually runs its clinical information systems today, and what fragmentation costs in dollars and in care.</p>
           </div>
           <p class="dropcap">Ask a Canadian which country runs its health data on a shared national record, and most will assume it’s their own. It isn’t. What we have instead is thirteen provincial and territorial health systems, each of which has spent the last two decades procuring, replacing, and patching together clinical information systems on its own — usually from the same short list of American vendors, usually without much regard for what the province next door just bought.</p>
+<p class="paragraph">Every procurement decision is also a <strong>sovereignty</strong> decision. Canada has quietly outsourced much of the software that underpins healthcare to foreign commercial platforms. Before we can discuss sovereignty, however, we first need to understand how fragmented the current landscape actually is.</p>
 <h2 class="section-heading">The provincial patchwork, seen from inside one province</h2>
 <p class="paragraph">You don’t have to compare provinces to see the fragmentation. British Columbia’s five regional health authorities can’t agree with each other. Island Health went live on Oracle Cerner in 2016, at Nanaimo Regional General Hospital, in a rollout later found by two separate provincial investigations to have been under-planned and under-resourced. Vancouver Coastal Health, the Provincial Health Services Authority, and Providence Health Care followed onto Cerner in phases from 2018 under the Clinical + Systems Transformation project — a program whose original contractor, IBM, was replaced mid-project after a dispute with the Ministry of Health, at a total cost that had reached $842 million. Meanwhile Fraser Health and Interior Health run MEDITECH Expanse, a system built by a company headquartered in Westwood, Massachusetts.</p>
 <div class="keystat"><span class="keystat-value">2</span><span class="keystat-label">different American EHR vendors run BC’s five health authorities — and that counts as diversification</span></div><p class="paragraph">So a patient who moves from Nanaimo to Surrey doesn’t just change health authorities. They change electronic health record vendors, data models, and — in practice — the degree to which their new care team can see anything about their old one. This is not a story about BC being unusually disorganized. It is what every province looks like once you check under the hood: a set of regional or authority-level procurements, each optimized locally, none of them required to be interoperable with the others by anything stronger than goodwill and an evolving voluntary standard.</p>
+<p class="paragraph">Imagine a BC resident travelling in Nova Scotia who needs a refill.</p>
+<p class="paragraph">The Nova Scotia pharmacist may be legally permitted to dispense the medication. But the pharmacist cannot simply open a national patient record and verify the original prescription, recent dispensing history, relevant diagnoses, laboratory results, allergies and provincial drug-plan eligibility. Instead, the pharmacy may need to telephone or fax the BC pharmacy or prescriber, confirm that the prescription is authentic, determine whether it can legally be transferred, and ask the patient to pay out of pocket because BC PharmaCare generally does not cover medications dispensed outside BC.</p>
+<p class="paragraph">The medication may ultimately be supplied. But the patient experiences the system not as one Canadian health service, but as two provincial systems attempting to negotiate with each other manually. <em><strong>We can do better</strong></em>.</p>
 <h2 class="section-heading">Primary care adds a second, older layer</h2>
 <p class="paragraph">Underneath the hospital systems sits an entirely separate layer of primary-care EMRs, procured independently again — this time by individual clinics, under provincial licensing lists that vary by jurisdiction. Canada does have a homegrown, open-source success story here: OSCAR EMR, built at McMaster University and still, by its own community’s account, the only widely deployed open-source EMR in the country. But OSCAR’s openness has produced its own fragmentation. Because the codebase is free to use and modify, it now exists as several related-but-distinct commercial and community offerings — OSCAR Pro, the WELL Health-backed hosted version; self-hosted installs run by individual clinics or regional groups; and a handful of independent service providers layering their own support and customization on top. A clinic “using OSCAR” in one province may be running software that shares almost nothing operationally with a clinic using OSCAR three provinces away.</p>
 <div class="sidenote"><p>OSCAR is worth naming specifically because it proves the model can work here: it was designed around Canadian billing codes and Canadian family-practice workflows from the start. It is not evidence that open source fails in this market — it is evidence of what happens when an open-source project has no shared governance body directing where contributions go.</p>
@@ -50,7 +59,8 @@
 </blockquote>
 <h2 class="section-heading">What fragmentation actually costs</h2>
 <p class="paragraph">The costs of this arrangement are not abstract. Every province re-runs its own procurement, negotiation, integration, and change-management cycle for systems that do fundamentally the same job everywhere: registration, clinical documentation, orders, results, medications, and billing. Every province pays its own implementation partners to rebuild interfaces that another province’s implementation partners built the year before. And patients pay a quieter cost in the gaps between jurisdictions: earlier analysis of cross-provincial prescription friction alone estimated roughly 107,000 unnecessary GP visits per year arising simply from the absence of a shared, verifiable record across provincial lines — before any of the larger costs of duplicated hospital procurement are counted.</p>
-<p class="paragraph">None of this is a technology problem in the sense of missing capability. Open-source clinical systems capable of running a modern hospital exist today. Canadian-built interoperability standards capable of connecting them exist today. What doesn’t exist is a body with the mandate, the funding formula, and the cross-jurisdictional authority to point thirteen procurement cycles at the same target. The next paper in this series makes the case that the absence of that body is not merely inefficient — it is a live financial and sovereignty risk, and the clock on it is running faster than most health ministries have priced in.</p>
+<p class="paragraph">None of this is a technology problem in the sense of missing capability. Open-source clinical systems capable of running a modern hospital exist today. Canadian-built interoperability standards capable of connecting them exist today. What doesn’t exist is a body with the mandate, the funding formula, and the cross-jurisdictional authority to point thirteen procurement cycles at the same target.</p>
+<p class="paragraph">The next paper in this series makes the case that the absence of that body is not merely inefficient — it is a live financial and sovereignty risk, and the clock on it is running faster than most health ministries have priced in.</p>
 <div class="paper-tags"><span class="tag">fragmentation</span><span class="tag">BC health authorities</span><span class="tag">OSCAR EMR</span><span class="tag">Infoway</span><span class="tag">CA Core+</span><span class="tag">primary care</span></div>
 
         <div class="related">
@@ -58,7 +68,7 @@
           
             <a href="/paper/sovereignty-risk/" class="paper-row related-row">
               <span class="paper-num">02</span>
-              <span class="paper-title">Renting Sovereignty: The Foreign Vendor Problem</span>
+              <span class="paper-title">The Sovereignty Risk Behind Canada's Clinical Information Systems</span>
             </a>
         </div>
         </div>

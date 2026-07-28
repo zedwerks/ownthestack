@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Renting Sovereignty: The Foreign Vendor Problem — Own the Stack</title>
-  <meta name="description" content="What happens when the company that holds a province's patient records restructures, gets acquired, or is compelled by a foreign government — and why 'not now' is not the same as 'never'." />
+  <title>The Sovereignty Risk Behind Canada's Clinical Information Systems — Own the Stack</title>
+  <meta name="description" content="Canada's hospitals increasingly depend on foreign-owned clinical information systems. This paper explores the strategic, financial and sovereignty risks of that dependence." />
   <link rel="canonical" href="https://ownthestack.ca/paper/sovereignty-risk/" />
-  <meta property="og:title" content="Renting Sovereignty: The Foreign Vendor Problem — Own the Stack" />
-  <meta property="og:description" content="What happens when the company that holds a province's patient records restructures, gets acquired, or is compelled by a foreign government — and why 'not now' is not the same as 'never'." />
-  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Sovereignty Risk Behind Canada's Clinical Information Systems — Own the Stack" />
+  <meta property="og:description" content="Canada's hospitals increasingly depend on foreign-owned clinical information systems. This paper explores the strategic, financial and sovereignty risks of that dependence." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ownthestack.ca/paper/sovereignty-risk/" />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <meta property="article:published_time" content="2026-07-27">
+  <meta property="article:modified_time" content="2026-07-27">
+  <meta property="article:author" content="Zed Werks Inc.">
   <link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -33,13 +38,15 @@
         <div class="wrap">
           <div class="paper-header">
             <span class="status-pill published">Published</span>
-            <h1>Renting Sovereignty: The Foreign Vendor Problem</h1>
-            <p class="sub">What happens when the company that holds a province's patient records restructures, gets acquired, or is compelled by a foreign government — and why 'not now' is not the same as 'never'.</p>
+            <h1>The Sovereignty Risk Behind Canada's Clinical Information Systems</h1>
+            <p class="sub">Canada's hospitals increasingly depend on foreign-owned clinical information systems. This paper explores the strategic, financial and sovereignty risks of that dependence.</p>
           </div>
-          <p class="dropcap">In February 2023, Nova Scotia signed a ten-year agreement with Oracle Cerner to build a single electronic care record for the province’s one million residents. The financial terms were not disclosed. Nova Scotia is now roughly a third of the way into a contract whose full cost the public cannot see, for a system it does not own, built by a company headquartered in Austin, Texas, and answerable first to its shareholders and second to Nova Scotia Health.</p>
+          <p class="dropcap">In February 2023, Nova Scotia signed a ten-year agreement with Oracle Health (formerly Cerner) to build a single electronic care record for the province’s one million residents. The financial terms were not disclosed. Nova Scotia is now roughly a third of the way into a contract whose full cost the public cannot see, for a system it does not own, built by a company headquartered in Austin, Texas, and answerable first to its shareholders and second to Nova Scotia Health.</p>
 <p class="paragraph">This paper is not a prediction that Oracle will discontinue Cerner tomorrow. It hasn’t, and Oracle says it won’t. The argument is narrower and, for a procurement decision, more useful: the risk a foreign vendor’s decisions pose to a province’s clinical infrastructure does not require a shutdown announcement to be real. It shows up years earlier, in contract terms provinces can’t see, in architecture decisions provinces don’t control, and in workforce and ownership changes that happen for reasons entirely unrelated to Canadian health policy.</p>
 <h2 class="section-heading">Three companies, headquartered elsewhere</h2>
-<p class="paragraph">The Canadian hospital EHR market is effectively a duopoly of Oracle Health (formerly Cerner, Austin) and MEDITECH (Westwood, Massachusetts), with Epic (Verona, Wisconsin) present in a smaller but growing number of Canadian installs. Every major clinical information system running in a Canadian hospital today is designed, priced, and roadmapped by a company that reports to American shareholders, operates under American law, and treats the Canadian market as a fraction of a much larger book of business. Canada is a price-taker in its own hospitals.</p>
+<p class="paragraph">What appears to be a competitive market is, in practice, a triopoly. Across Canada’s provinces, major hospital clinical information systems have largely converged on three U.S.-headquartered vendors: Oracle Health (Cerner), MEDITECH, and Epic Systems.</p>
+<p class="paragraph">Every major clinical information system running in a Canadian hospital today is designed, priced, and roadmapped by a company that reports to American shareholders, operates under American law, and treats the Canadian market as a fraction of a much larger book of business. Canada is a price-taker in its own hospitals.</p>
+<p class="paragraph">The issue is not that these companies produce poor software—many are world leaders—but that Canada’s core clinical infrastructure is overwhelmingly dependent on software platforms governed, developed, and commercially controlled outside Canada.</p>
 <h2 class="section-heading">What “deep integration” means once it’s happened</h2>
 <p class="paragraph">Since acquiring Cerner in 2022, Oracle has moved to fold it into its own cloud infrastructure. By early 2026, much of Cerner’s workload had been migrated onto Oracle Cloud Infrastructure and the Oracle Autonomous Database, to the point that industry analysts now describe Cerner as no longer an independent application, but a system dependent on Oracle’s proprietary networking and database layer underneath it. Whatever a province thought it was buying when it signed with Cerner, what it has today is increasingly inseparable from Oracle’s own commercial cloud stack. Unwinding that dependency — migrating off Cerner to any other vendor, Canadian or otherwise — has become a larger technical undertaking than it was the year the contract was signed, and it grows larger every year the integration deepens.</p>
 <div class="keystat"><span class="keystat-value">10 yrs</span><span class="keystat-label">the length of Nova Scotia’s Oracle Cerner contract, on undisclosed financial terms</span></div><h2 class="section-heading">The volatility is not hypothetical</h2>
