@@ -43,14 +43,14 @@ function renderBlock(block, context) {
         <div class="related">
           <h3>Continue reading</h3>
           ${items
-            .map(
-              (p) => `
+          .map(
+            (p) => `
             <a href="/paper/${p.id}/" class="paper-row related-row">
               <span class="paper-num">${String(p.order).padStart(2, "0")}</span>
               <span class="paper-title">${escapeHtml(p.en.title)}</span>
             </a>`
-            )
-            .join("")}
+          )
+          .join("")}
         </div>`;
     }
     default:
@@ -74,7 +74,12 @@ function layout({ site, title, description, activeNav, bodyHtml, canonical }) {
   ${canonical ? `<link rel="canonical" href="${canonical}" />` : ""}
   <meta property="og:title" content="${escapeHtml(title)}" />
   <meta property="og:description" content="${escapeHtml(description)}" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="${canonical || ""}" />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <meta property="article:published_time" content="2026-07-27">
+  <meta property="article:modified_time" content="2026-07-27">
+  <meta property="article:author" content="Zed Werks Inc.">
   <link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
