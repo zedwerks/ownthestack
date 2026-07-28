@@ -3,7 +3,7 @@
   --ink-soft: #253238;
   --paper: #F3EFE6;
   --paper-dim: #E9E3D5;
-  --spruce: #1F3A34;
+  --azure: #1F3A34;
   --brass: #A9782F;
   --brass-soft: #C89A52;
   --glacier: #6E8FA3;
@@ -12,6 +12,35 @@
   --font-display: 'Fraunces', serif;
   --font-body: 'IBM Plex Sans', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* Dark palette: applied when the user hasn't chosen (follows OS setting)
+   and, identically, when they've explicitly toggled dark via the header
+   switch (see theme-toggle script in render.js, which sets data-theme and
+   persists it to localStorage). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --ink: #EDE7DA;
+    --ink-soft: #B8AF9E;
+    --paper: #14181A;
+    --paper-dim: #1D2224;
+    --azure: #5DADE7;
+    --brass: #D3A55C;
+    --brass-soft: #E6C489;
+    --glacier: #8FB4C9;
+    --brick: #E07A63;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #EDE7DA;
+  --ink-soft: #B8AF9E;
+  --paper: #14181A;
+  --paper-dim: #1D2224;
+  --azure: #5DADE7;
+  --brass: #D3A55C;
+  --brass-soft: #E6C489;
+  --glacier: #8FB4C9;
+  --brick: #E07A63;
 }
 
 * { box-sizing: border-box; }
@@ -25,6 +54,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 a { color: inherit; }
@@ -91,6 +121,28 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 }
 .site-nav a:hover, .site-nav a.active { color: var(--brass); border-bottom-color: var(--brass); }
 
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--ink-soft);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--brass); color: var(--brass); }
+.theme-toggle svg { width: 15px; height: 15px; }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .theme-toggle .icon-sun { display: none; }
+  :root:not([data-theme]) .theme-toggle .icon-moon { display: block; }
+}
+
 .ledger-rule {
   height: 1px;
   background: repeating-linear-gradient(90deg, var(--brass) 0, var(--brass) 6px, transparent 6px, transparent 12px);
@@ -119,7 +171,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   font-size: clamp(2rem, 5vw, 3.1rem);
   line-height: 1.12;
   margin: 0 0 24px;
-  color: var(--spruce);
+  color: var(--azure);
 }
 
 .sub {
@@ -146,7 +198,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   transition: background 0.15s ease, color 0.15s ease;
 }
 .btn:hover { background: var(--ink); color: var(--paper); }
-.btn.primary { background: var(--spruce); color: var(--paper); border-color: var(--spruce); }
+.btn.primary { background: var(--azure); color: var(--paper); border-color: var(--azure); }
 .btn.primary:hover { background: var(--brass); border-color: var(--brass); color: var(--ink); }
 
 /* ---------- Paper list / ledger index ---------- */
@@ -195,7 +247,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   white-space: nowrap;
   height: fit-content;
 }
-.status-pill.published { border-color: var(--spruce); color: var(--spruce); }
+.status-pill.published { border-color: var(--azure); color: var(--azure); }
 
 .paper-row-disabled {
   cursor: default;
@@ -217,7 +269,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(1.9rem, 4vw, 2.6rem);
-  color: var(--spruce);
+  color: var(--azure);
   line-height: 1.15;
   margin: 12px 0 16px;
 }
@@ -237,7 +289,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.4rem;
-  color: var(--spruce);
+  color: var(--azure);
   margin: 48px 0 18px;
   padding-top: 24px;
   border-top: 1px solid var(--paper-dim);
@@ -260,7 +312,7 @@ p.dropcap::first-letter {
   font-style: italic;
   font-size: 1.35rem;
   line-height: 1.4;
-  color: var(--spruce);
+  color: var(--azure);
   border-left: 3px solid var(--brass);
   padding: 4px 0 4px 22px;
   margin: 40px 0;

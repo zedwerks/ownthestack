@@ -107,6 +107,14 @@ function layout({
   <meta name="description" content="${escapeHtml(description)}" />
   ${canonical ? `<link rel="canonical" href="${canonical}" />` : ""}
   <meta name="theme-color" content="#1F3A34" />
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
 
   <meta property="og:site_name" content="${escapeHtml(site.title)}" />
   <meta property="og:title" content="${escapeHtml(title)}" />
@@ -146,6 +154,10 @@ function layout({
       <nav class="site-nav">
         <a href="/" ${activeNav === "home" ? 'class="active"' : ""}>${site.nav.home}</a>
         <a href="/about/" ${activeNav === "about" ? 'class="active"' : ""}>${site.nav.about}</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" /></svg>
+        </button>
       </nav>
     </div>
   </header>
@@ -158,6 +170,23 @@ function layout({
       <p>${escapeHtml(site.footer.note)}</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById("theme-toggle");
+      if (!btn) return;
+      function effectiveTheme() {
+        var explicit = document.documentElement.getAttribute("data-theme");
+        if (explicit) return explicit;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      btn.addEventListener("click", function () {
+        var next = effectiveTheme() === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+    })();
+  </script>
 </body>
 </html>
 `;
