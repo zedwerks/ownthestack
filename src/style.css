@@ -350,6 +350,45 @@ p.dropcap::first-letter {
   color: var(--glacier);
 }
 
+.evidence-ref {
+  font-family: var(--font-mono);
+  font-size: 0.68em;
+  line-height: 0;
+  margin-left: 0.12em;
+  vertical-align: super;
+}
+.evidence-ref a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.evidence-ref a:hover { color: inherit; }
+
+.evidence-kicker {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brick);
+}
+.evidence-back {
+  color: var(--ink-soft);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.evidence-back:hover { color: var(--brass); }
+.evidence-body h3 {
+  font-family: var(--font-display);
+  color: var(--azure);
+  margin-top: 32px;
+}
+.evidence-body li { margin-bottom: 0.45rem; }
+
 .related {
   margin-top: 56px;
   padding-top: 24px;
