@@ -87,6 +87,9 @@ looks like this:
 id: current-state
 locale: en
 translation_status: final
+datePublished: "2026-07-26"
+dateModified: "2026-07-31"
+revision: "1.1"
 tags: [fragmentation, OSCAR EMR, Infoway]
 related: [sovereignty-risk, open-source-foundations]
 ---
@@ -119,7 +122,18 @@ route or template file to touch, and the local dev server (`npm start`)
 watches these files and rebuilds live. Flip `status` to `"published"` in
 `papers.json` when it's ready for readers — that's the review gate: a `draft`
 paper builds and is reachable by direct URL, but stays greyed out and
-unlinked on the home page until someone with merge access flips the flag.
+unlinked on the production home page until someone with merge access flips the
+flag. When running `npm start`, draft papers that have a body file are clickable
+in the home-page index so authors can read and review them normally. Planned
+papers remain disabled, and `npm run build` retains the production behaviour.
+
+Published papers should include `datePublished` in `YYYY-MM-DD` format.
+Preserve that original date permanently. A published paper without one still
+builds for preview, but its header displays `Publication date pending` and no
+publication date is emitted in its Open Graph or Schema.org metadata. Set
+`dateModified` only when making a substantive editorial change, and increment
+the optional `revision` label at the same time. Typo fixes, formatting changes,
+and unrelated site deployments do not need a new modification date.
 
 **A gotcha this project already hit once:** the `related` frontmatter field
 links to other paper IDs. If you reference a paper that's still `planned`

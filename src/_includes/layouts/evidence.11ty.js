@@ -1,4 +1,4 @@
-const { layout, escapeHtml, BUILD_TIME } = require("../../_lib/render.js");
+const { layout, escapeHtml } = require("../../_lib/render.js");
 
 class EvidenceLayout {
   render(data) {
@@ -43,8 +43,8 @@ class EvidenceLayout {
       description,
       url: canonical,
       inLanguage: "en-CA",
-      datePublished: data.datePublished || BUILD_TIME,
-      dateModified: data.dateModified || BUILD_TIME,
+      ...(data.datePublished ? { datePublished: data.datePublished } : {}),
+      ...(data.dateModified ? { dateModified: data.dateModified } : {}),
       author: { "@type": "Person", name: "Brad Head" },
       publisher: {
         "@type": "Organization",

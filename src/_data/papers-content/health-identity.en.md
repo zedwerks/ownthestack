@@ -2,6 +2,9 @@
 id: intro-principles
 locale: en
 translation_status: final
+datePublished: "2026-07-26"
+dateModified: "2026-07-27"
+revision: "1.1"
 tags: [fragmentation, BC health authorities, OSCAR EMR, Infoway, CA Core+, primary care]
 related: [sovereignty-risk, open-source-foundations]
 ---

@@ -2,6 +2,9 @@
 id: sovereignty-risk
 locale: en
 translation_status: final
+datePublished: "2026-07-26"
+dateModified: "2026-07-31"
+revision: "1.1"
 tags: [Oracle Cerner, vendor lock-in, MEDITECH, procurement risk, export controls, BC Clinical + Systems Transformation]
 related: [current-state, governance, funding]
 ---

@@ -265,6 +265,30 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline
 
 .paper-header { margin-bottom: 40px; }
 
+.paper-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+}
+
+.publication-meta {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+}
+.publication-meta span + span::before {
+  content: "·";
+  margin: 0 0.65em;
+  color: var(--glacier);
+}
+.publication-meta time { font: inherit; }
+.publication-date-pending { font-style: italic; }
+
 .paper-header h1 {
   font-family: var(--font-display);
   font-weight: 500;
