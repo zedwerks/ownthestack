@@ -6,7 +6,7 @@ datePublished: "2026-07-26"
 dateModified: "2026-07-31"
 revision: "1.1"
 tags: [Oracle Cerner, vendor lock-in, MEDITECH, procurement risk, export controls, BC Clinical + Systems Transformation]
-related: [current-state, governance, funding]
+related: [current-state, open-source-foundations, governance, funding]
 ---
 
 In February 2023, Nova Scotia signed a $365-million ten-year deal with Oracle Health (formerly Cerner) to build a single electronic care record for the province's one million residents.[^1](/evidence/c0001/ "Nova Scotia’s ten-year, $365-million Oracle Cerner contract") Nova Scotia is now roughly a third of the way into a contract whose full cost the public cannot see, for a system it does not own, built by Cerner (Legacy) headquartered in North Kansas City, Missouri, owned by Oracle based in Austin, Texas, and answerable first to its shareholders and second to Nova Scotia Health.

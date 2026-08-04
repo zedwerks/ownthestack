@@ -443,6 +443,12 @@ p.dropcap::first-letter {
   margin-bottom: 10px;
 }
 
+.footer-note {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
 @media (max-width: 560px) {
   .paper-row { grid-template-columns: 1fr; gap: 6px; }
   .status-pill { justify-self: start; }

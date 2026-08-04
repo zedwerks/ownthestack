@@ -4,9 +4,9 @@ locale: en
 datePublished: "2026-07-31"
 dateModified: "2026-08-01"
 revision: "1.1"
-translation_status: draft
+translation_status: final
 tags: [open-source, CIS, EHR]
-related: [current-state, sovereignty-risk, architecture]
+related: [current-state, sovereignty-risk, health-identity, architecture]
 ---
 
 An assessment of OpenMRS, Bahmni, and openEHR as candidate foundations, and why Canada should extend rather than replace the interoperability work Infoway has already funded.

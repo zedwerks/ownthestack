@@ -23,7 +23,7 @@
   {
     "id": "open-source-foundations",
     "order": 3,
-    "status": "draft",
+    "status": "published",
     "tags": ["OpenMRS", "Bahmni", "openEHR", "architecture"],
     "en": {
       "title": "What We Don't Have to Build Twice",
