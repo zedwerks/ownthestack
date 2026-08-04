@@ -2,17 +2,20 @@
 id: sovereignty-risk
 locale: en
 translation_status: final
+datePublished: "2026-07-26"
+dateModified: "2026-07-31"
+revision: "1.1"
 tags: [Oracle Cerner, vendor lock-in, MEDITECH, procurement risk, export controls, BC Clinical + Systems Transformation]
-related: [current-state, governance, funding]
+related: [current-state, open-source-foundations, governance, funding]
 ---
 
-In February 2023, Nova Scotia signed a $385-million ten-year deal with Oracle Health (formerly Cerner) to build a single electronic care record for the province's one million residents. Nova Scotia is now roughly a third of the way into a contract whose full cost the public cannot see, for a system it does not own, built by Cerner (Legacy) headquartered in North Kansas City, Missouri, owned by Oracle based in Austin, Texas, and answerable first to its shareholders and second to Nova Scotia Health. 
+In February 2023, Nova Scotia signed a $365-million ten-year deal with Oracle Health (formerly Cerner) to build a single electronic care record for the province's one million residents.[^1](/evidence/c0001/ "Nova Scotia’s ten-year, $365-million Oracle Cerner contract") Nova Scotia is now roughly a third of the way into a contract whose full cost the public cannot see, for a system it does not own, built by Cerner (Legacy) headquartered in North Kansas City, Missouri, owned by Oracle based in Austin, Texas, and answerable first to its shareholders and second to Nova Scotia Health.
 
 This paper is not a prediction that Oracle will discontinue Cerner tomorrow. It hasn't, and Oracle says it won't. The argument is narrower and, for a procurement decision, more useful: the risk a foreign vendor's decisions pose to a province's clinical infrastructure does not require a shutdown announcement to be real. It shows up years earlier, in contract terms provinces can't see, in architecture decisions provinces don't control, and in workforce and ownership changes that happen for reasons entirely unrelated to Canadian health policy.
 
 ## Three companies, headquartered elsewhere
 
-What appears to be a competitive market is, in practice, a triopoly. Across Canada's provinces, major hospital clinical information systems have largely converged on three U.S.-headquartered vendors: Oracle Health (Cerner), MEDITECH, and Epic Systems.
+What appears to be a competitive market is, in practice, a triopoly. Across Canada's provinces, major hospital clinical information systems have largely converged on three U.S.-headquartered vendors: Oracle Health (Cerner), MEDITECH, and Epic Systems.[^2](/evidence/c0002/ "Major hospital information-system deployments across Canada")
 
 Every major clinical information system running in a Canadian hospital today is designed, priced, and roadmapped by a company that reports to American shareholders, operates under American law, and treats the Canadian market as a fraction of a much larger book of business. Canada is a price-taker in its own hospitals.
 

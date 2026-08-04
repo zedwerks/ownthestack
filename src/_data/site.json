@@ -14,7 +14,7 @@
     "cta_secondary": "See the governance model"
   },
   "footer": {
-    "note": "This is an independent working proposal, not an official position of any government or health authority. Published open source under MIT license so it can be forked, argued with, and improved.",
+    "note": "This paper is intentionally published early. We expect ideas to evolve as practitioners, governments, clinicians, patients, and vendors contribute experience and evidence.  If we've missed something, tell us. This is an independent working proposal, not an official position of any government or health authority. Published open source under MIT license so it can be forked, argued with, and improved.",
     "status": "Status: early draft — circulating for feedback"
   },
   "status_labels": {

@@ -23,11 +23,11 @@
   {
     "id": "open-source-foundations",
     "order": 3,
-    "status": "planned",
+    "status": "published",
     "tags": ["OpenMRS", "Bahmni", "openEHR", "architecture"],
     "en": {
       "title": "What We Don't Have to Build Twice",
-      "abstract": "An assessment of OpenMRS, Bahmni, and openEHR as candidate foundations, and why Canada should extend rather than replace the interoperability work Infoway has already funded."
+      "abstract": "Three open-source clinical platforms already run in production, at national scale, outside Canada. An assessment of OpenMRS, Bahmni, and openEHR as candidate foundations, and why Canada should extend the interoperability work Infoway has already funded rather than build from zero."
     }
   },
   {
@@ -46,7 +46,7 @@
     "status": "published",
     "tags": ["health-identity", "overview", "context", "iso"],
     "en": {
-      "title": "Health Identity: A Primer",
+      "title": "Health Identity: A Framework for Canada",
       "abstract": "A governance model for a federal-provincial-territorial consortium that can make binding technical decisions without recreating the health-transfer disputes of the last thirty years."
     }
   },

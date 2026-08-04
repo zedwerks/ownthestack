@@ -1,4 +1,11 @@
+const { md } = require("./src/_lib/markdown.js");
+
 module.exports = function (eleventyConfig) {
+  // Use the same Markdown renderer for regular Eleventy Markdown pages as the
+  // paper-body loader uses. This keeps evidence notes and papers typographically
+  // consistent and makes the evidence-reference syntax available in both.
+  eleventyConfig.setLibrary("md", md);
+
   // Static assets served as-is.
   eleventyConfig.addPassthroughCopy("src/style.css");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
@@ -28,11 +35,13 @@ module.exports = function (eleventyConfig) {
   // https://ownthestack.ca/data/papers.json and /data/papers/<id>.en.md
   eleventyConfig.addPassthroughCopy({ "src/_data/papers-content": "data/papers" });
   eleventyConfig.addPassthroughCopy({ "src/_data/papers.json": "data/papers.json" });
+  eleventyConfig.addPassthroughCopy({ "src/_data/evidence": "data/evidence" });
 
   // paperBodies.js reads these .md/.mdx files itself (fs.readFileSync), so
   // Eleventy can't infer the dependency automatically the way it can for
   // required .json/.js data files — watch them explicitly.
   eleventyConfig.addWatchTarget("src/_data/papers-content");
+  eleventyConfig.addWatchTarget("src/_data/evidence");
 
   return {
     dir: {

@@ -11,6 +11,7 @@ class HomePage {
     const { site, papers, publishedPapers } = data;
     const title = `${site.title} — ${site.subtitle}`;
     const description = site.hero.sub;
+    const papersWithBodies = new Set(publishedPapers.map((paper) => paper.id));
 
     // Point "see the governance model" at the real paper once it's published;
     // until then, fall back to the on-page index instead of a dead link.
@@ -36,7 +37,17 @@ class HomePage {
           ${papers
             .slice()
             .sort((a, b) => a.order - b.order)
-            .map((p) => paperRow(p, { linkable: p.status === "published" }))
+            .map((p) =>
+              paperRow(p, {
+                // Draft papers are clickable on the live site too, as long as
+                // a body file actually exists for them — the "In draft" pill
+                // (see site.json status_labels) is what signals draft status
+                // to readers, not whether the link works.
+                linkable:
+                  p.status === "published" ||
+                  (p.status === "draft" && papersWithBodies.has(p.id)),
+              })
+            )
             .join("\n")}
         </div>
       </section>

@@ -62,11 +62,6 @@ function renderBlocks(blocks, context) {
   return blocks.map((b) => renderBlock(b, context)).join("\n");
 }
 
-// Captured once when this module is first loaded, i.e. when the site is
-// built — every page rendered in this build shares one timestamp, used for
-// og/article:* meta and the JSON-LD dateModified/datePublished fallback.
-const BUILD_TIME = new Date().toISOString();
-
 // Escapes a value for safe embedding inside a <script type="application/ld+json">
 // block: JSON.stringify already handles quotes, but "</script>" inside a
 // string value would still close the tag early in an HTML parser.
@@ -129,8 +124,8 @@ function layout({
   <meta name="twitter:image" content="${absoluteImage}" />
   ${
     isArticle
-      ? `<meta property="article:published_time" content="${datePublished || BUILD_TIME}" />
-  <meta property="article:modified_time" content="${dateModified || BUILD_TIME}" />
+      ? `${datePublished ? `<meta property="article:published_time" content="${escapeHtml(datePublished)}" />` : ""}
+  ${dateModified ? `<meta property="article:modified_time" content="${escapeHtml(dateModified)}" />` : ""}
   <meta property="article:author" content="Brad Head" />`
       : ""
   }
@@ -200,5 +195,4 @@ module.exports = {
   renderBlocks,
   renderJsonLd,
   layout,
-  BUILD_TIME,
 };

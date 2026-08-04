@@ -67,9 +67,13 @@ src/
                                   only those with a body file (see below)
     paperBodies.js               Global data: every paper body, read as
                                    Markdown and keyed by "<id>.<locale>"
+    evidenceNotes.js             Global data: evidence Markdown, parsed and
+                                  rendered into standalone evidence pages
     papers-content/
       current-state.en.md        Paper bodies — one file per paper per locale,
       sovereignty-risk.en.md      frontmatter + plain Markdown prose
+    evidence/                    Evidence notes — one Markdown file per source
+                                  or supporting claim
 ```
 
 ## Writing a paper
@@ -83,6 +87,9 @@ looks like this:
 id: current-state
 locale: en
 translation_status: final
+datePublished: "2026-07-26"
+dateModified: "2026-07-31"
+revision: "1.1"
 tags: [fragmentation, OSCAR EMR, Infoway]
 related: [sovereignty-risk, open-source-foundations]
 ---
@@ -115,7 +122,18 @@ route or template file to touch, and the local dev server (`npm start`)
 watches these files and rebuilds live. Flip `status` to `"published"` in
 `papers.json` when it's ready for readers — that's the review gate: a `draft`
 paper builds and is reachable by direct URL, but stays greyed out and
-unlinked on the home page until someone with merge access flips the flag.
+unlinked on the production home page until someone with merge access flips the
+flag. When running `npm start`, draft papers that have a body file are clickable
+in the home-page index so authors can read and review them normally. Planned
+papers remain disabled, and `npm run build` retains the production behaviour.
+
+Published papers should include `datePublished` in `YYYY-MM-DD` format.
+Preserve that original date permanently. A published paper without one still
+builds for preview, but its header displays `Publication date pending` and no
+publication date is emitted in its Open Graph or Schema.org metadata. Set
+`dateModified` only when making a substantive editorial change, and increment
+the optional `revision` label at the same time. Typo fixes, formatting changes,
+and unrelated site deployments do not need a new modification date.
 
 **A gotcha this project already hit once:** the `related` frontmatter field
 links to other paper IDs. If you reference a paper that's still `planned`
@@ -130,6 +148,46 @@ can see the exact source a paper was built from without cloning the repo —
 the same "auditable as flat files" idea the Alberta site's README talks
 about, kept here even without their in-browser CMS or AI-generation
 pipeline.
+
+## Adding supporting evidence
+
+Standalone evidence notes live in `src/_data/evidence/`, beside the paper
+content authors already edit. A new note only needs a filename, front matter,
+and ordinary Markdown:
+
+```markdown
+---
+title: Provincial procurement remains fragmented
+description: Procurement examples and primary sources supporting the claim.
+paper: current-state
+reference: "1"
+---
+
+Summarize what the evidence establishes, then link to the primary sources.
+
+## Sources
+
+- [Source title](https://example.ca/source)
+```
+
+Saving that example as `src/_data/evidence/provincial-procurement.md` creates
+`/evidence/provincial-procurement/`. The optional `paper` field adds a link back
+to the paper, `reference` labels the note in its header, and the page is added
+to the sitemap automatically. Its raw Markdown is also published at
+`/data/evidence/provincial-procurement.md`.
+
+In any paper body, link a claim to the note with this superscript syntax:
+
+```markdown
+The systems remain fragmented.[^1](/evidence/provincial-procurement/)
+```
+
+You can add an accessible description after the URL when the number alone is
+not descriptive enough:
+
+```markdown
+The systems remain fragmented.[^1](/evidence/provincial-procurement/ "Provincial procurement examples")
+```
 
 ## Running it locally
 

@@ -28,6 +28,9 @@ class AboutPage {
             static hosting, MIT license — was adapted from the structure the Government of Alberta
             used for its own Velocity White Papers (thevelocitywhitepapers.com). No content, copy,
             or branding was reused, only the shape of the approach.</p>
+          <p class="paragraph">The source for this site is open and available on GitHub at
+            <a href="https://github.com/zedwerks/ownthestack" target="_blank" rel="noopener">github.com/zedwerks/ownthestack</a>.</p>
+            <p class="paragraph">If you have questions, comments, or suggestions, please see the CONTRIBUTING.md file in the repository for how to submit issues or pull requests.</p>
         </div>
       </section>
     `;
